@@ -60,15 +60,15 @@ bool ModuleSceneIntro::Start()
 	scene_path = ASSETS_FOLDER;
 	scene_path += "scene_1.scene";
 	bool scene_exists = App->file_system->Exists(scene_path.data());
-	if (scene_exists)
-	{
-		scene_path = App->file_system->GetPathToGameFolder(true) + scene_path;
-		scene_ie.LoadScene(scene_path.data(), FileType::SCENE);
-	}
-	else
-	{
-		App->resources->ImportFile("Assets\\3D_Objects\\street\\Assignment2_street.FBX");
-	}
+	//if (scene_exists)
+	//{
+	//	scene_path = App->file_system->GetPathToGameFolder(true) + scene_path;
+	//	scene_ie.LoadScene(scene_path.data(), FileType::SCENE);
+	//}
+	//else
+	//{
+	//	App->resources->ImportFile("Assets\\3D_Objects\\street\\Assignment2_street.FBX");
+	//}
 
 	std::vector<const GameObject*> sceneObjects;
 	GOFunctions::FillArrayWithChildren(sceneObjects, root);
