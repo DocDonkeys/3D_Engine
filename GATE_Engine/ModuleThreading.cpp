@@ -11,7 +11,7 @@ ModuleThreading::~ModuleThreading()
 
 bool ModuleThreading::Init()
 {
-	concurrentThreads = std::thread::hardware_concurrency();
+	concurrentThreads = std::thread::hardware_concurrency() - 1;
 	return true;
 }
 
