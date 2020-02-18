@@ -1,4 +1,5 @@
 #include "ModuleThreading.h"
+#include "Globals.h"
 
 ModuleThreading::ModuleThreading(Application* app, const char* name, bool start_enabled) : Module(app, name, start_enabled)
 {
@@ -20,6 +21,8 @@ bool ModuleThreading::Start()
 		threadVector.push_back(std::thread(&ModuleThreading::ProcessTasks, this, i));
 		threadStatus.push_back(false);
 	}
+
+	LOG("Created %d threads.", concurrentThreads);
 	
 	poolTerminated = false;
 	stopPool = false;

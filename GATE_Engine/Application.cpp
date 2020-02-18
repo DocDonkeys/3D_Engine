@@ -15,6 +15,7 @@
 #include "TextureLoader.h"
 #include "ModuleFileSystem.h"
 #include "ModuleScripting.h"
+#include "ModuleThreading.h"
 
 // ----------------	//CHANGE/FIX: This shouldn't be here! Upgrade Save&Load so it's done on every module for their data.
 // Windows
@@ -38,6 +39,7 @@
 
 Application::Application()
 {
+	threading = new ModuleThreading(this, "Threading");
 	window = new ModuleWindow(this, "Window");
 	input = new ModuleInput(this, "Input");
 	geometry_loader = new GeometryLoader(this, "Geometry_Loader");
@@ -56,6 +58,7 @@ Application::Application()
 	// They will CleanUp() in reverse order
 
 	// Main Modules
+	AddModule(threading);
 	AddModule(window);
 	AddModule(input);
 	AddModule(camera);
