@@ -9,6 +9,8 @@
 #include <thread>
 #include <condition_variable>
 
+#define ADDTASK(function, ...) ModuleThreading::AddTask(std::bind(&function, this, __VA_ARGS__))
+
 class ModuleThreading : public Module {
 public:
 	ModuleThreading(Application* app, const char* name = "null", bool start_enabled = true);

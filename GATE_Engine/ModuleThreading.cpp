@@ -116,6 +116,7 @@ void ModuleThreading::ProcessTasks(int threadID)
 			Task = tasksQueue.front();
 			tasksQueue.pop();
 		}
+
 		Task();
 	}
 }
